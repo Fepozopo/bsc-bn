@@ -48,5 +48,6 @@ all: windows-x86_64 windows-arm linux-x86_64 linux-arm macos-arm
 clean:
 	@echo "Cleaning generated binaries..."
 	@rm -rf bin
+	@rm -rf html
 
 .PHONY: windows-x86_64 windows-arm linux-x86_64 linux-arm macos-arm all clean
