@@ -47,7 +47,6 @@ body { font-family: Arial, sans-serif; background: #fff; }
 .line-items-table td.num { text-align: right; font-family: monospace; }
 .totals-table { width: 98%; border-collapse: collapse; margin: 18px auto 0 auto; }
 .totals-table th, .totals-table td { border: 2px solid #000; padding: 6px 8px; font-weight: bold; background: #eee; }
-.footer-box { border: 2px solid #000; margin: 18px 24px 24px 24px; padding: 8px 16px; font-size: 1em; }
 </style>
 </head>
 <body>
@@ -105,6 +104,14 @@ body { font-family: Arial, sans-serif; background: #fff; }
       padding-left: 24px;
       color: #222;
     }
+    @media print {
+      thead { display: table-header-group; }
+      tfoot { display: table-footer-group; }
+      tr, .casepack-row { page-break-inside: avoid; }
+      .outer-box { margin: 0; }
+      .line-items-table th, .line-items-table td { padding: 2px 4px; }
+      .casepack-row td { padding-bottom: 18px; }
+    }
   </style>
   <div class="address-outer-box">
     <div class="address-section">
@@ -142,15 +149,17 @@ body { font-family: Arial, sans-serif; background: #fff; }
 		fmt.Sscanf(item.ItemCost, "%f", &cost)
 		totalCost += float64(qty) * cost
 
-		fmt.Fprintf(f, `<tr>
-<td>%s</td><td>%s</td><td>%s</td>
-<td>%s</td>
-<td class="num">%s</td>
-<td class="num">%s</td>
-<td class="num">%s</td>
-<td class="num">%s</td>
-</tr>
-<tr class="casepack-row"><td colspan="8"><b>CASEPACK QTY:</b> %s &nbsp;&nbsp; <b>IOQ:</b> %s</td></tr>
+		fmt.Fprintf(f, `<tbody>
+	<tr>
+	<td>%s</td><td>%s</td><td>%s</td>
+	<td>%s</td>
+	<td class="num">%s</td>
+	<td class="num">%s</td>
+	<td class="num">%s</td>
+	<td class="num">%s</td>
+	</tr>
+	<tr class="casepack-row"><td colspan="8"><b>CASEPACK QTY:</b> %s &nbsp;&nbsp; <b>IOQ:</b> %s</td></tr>
+	</tbody>
 `, item.EAN, item.Title, item.SKU, item.ArrivalDate, item.Quantity, item.ItemCost, item.ItemRetail, item.Discount, item.CasePack, item.IOQ)
 	}
 
@@ -168,7 +177,6 @@ body { font-family: Arial, sans-serif; background: #fff; }
     </tr>
   </table>
 
-  <div class="footer-box">
   </div>
 </div>
 </body>
