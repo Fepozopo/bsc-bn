@@ -97,6 +97,14 @@ body { font-family: Arial, sans-serif; background: #fff; }
       text-align: center;
       margin-top: 8px;
     }
+    .casepack-row td {
+      border: none;
+      font-size: 0.97em;
+      padding-top: 0;
+      padding-bottom: 18px;
+      padding-left: 24px;
+      color: #222;
+    }
   </style>
   <div class="address-outer-box">
     <div class="address-section">
@@ -112,15 +120,17 @@ body { font-family: Arial, sans-serif; background: #fff; }
   </div>
 
   <table class="line-items-table">
-    <tr class="item-info-header">
-      <th colspan="8">ITEM INFORMATION</th>
-    </tr>
-    <tr>
-      <th>EAN</th><th>Title</th><th>SKU</th>
-      <th>EXPECTED ARRIVAL DATE</th><th>QUANTITY</th>
-      <th>ITEM COST</th><th>ITEM RETAIL</th>
-      <th>DISC%</th>
-    </tr>
+	<thead>
+	  <tr class="item-info-header">
+	    <th colspan="8">ITEM INFORMATION</th>
+	  </tr>
+	  <tr>
+	    <th>EAN</th><th>Title</th><th>SKU</th>
+	    <th>EXPECTED ARRIVAL DATE</th><th>QUANTITY</th>
+	    <th>ITEM COST</th><th>ITEM RETAIL</th>
+	    <th>DISC%</th>
+	  </tr>
+    </thead>
 `)
 
 	var totalCost float64
