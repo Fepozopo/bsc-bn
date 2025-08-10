@@ -3,11 +3,17 @@ package po
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 )
 
 // WritePOHTML generates an HTML file for the given PO.
 func WritePOHTML(po PO) error {
-	filename := fmt.Sprintf("PO_%s.html", po.Number)
+	// Ensure the html output directory exists (cross-platform)
+	outDir := "html"
+	if err := os.MkdirAll(outDir, os.ModePerm); err != nil {
+		return fmt.Errorf("failed to create output directory: %w", err)
+	}
+	filename := filepath.Join(outDir, fmt.Sprintf("%s.html", po.Number))
 	f, err := os.Create(filename)
 	if err != nil {
 		return err
