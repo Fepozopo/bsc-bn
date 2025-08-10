@@ -1,6 +1,8 @@
 package main
 
 import (
+	"flag"
+	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -10,7 +12,16 @@ import (
 )
 
 func main() {
-	f, err := os.Open("POFile.HTM")
+	var filename string
+	flag.StringVar(&filename, "file", "", "Path to the PO HTML file")
+	flag.Parse()
+
+	if filename == "" {
+		fmt.Println("Usage: bsc-bn -file <POFile.HTM>")
+		os.Exit(1)
+	}
+
+	f, err := os.Open(filename)
 	if err != nil {
 		log.Fatal(err)
 	}
