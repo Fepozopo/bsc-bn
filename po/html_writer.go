@@ -134,7 +134,7 @@ body { font-family: Arial, sans-serif; background: #fff; }
 	  <tr>
 	    <th>EAN</th><th>Title</th><th>SKU</th>
 	    <th>EXPECTED ARRIVAL DATE</th><th>QUANTITY</th>
-	    <th>ITEM COST</th><th>ITEM RETAIL</th>
+	    <th>ITEM RETAIL</th><th>ITEM COST</th>
 	    <th>DISC%</th>
 	  </tr>
     </thead>
@@ -160,7 +160,7 @@ body { font-family: Arial, sans-serif; background: #fff; }
 	</tr>
 	<tr class="casepack-row"><td colspan="8"><b>CASEPACK QTY:</b> %s &nbsp;&nbsp; <b>IOQ:</b> %s</td></tr>
 	</tbody>
-`, item.EAN, item.Title, item.SKU, item.ArrivalDate, item.Quantity, item.ItemCost, item.ItemRetail, item.Discount, item.CasePack, item.IOQ)
+`, item.EAN, item.Title, item.SKU, item.ArrivalDate, item.Quantity, item.ItemRetail, item.ItemCost, item.Discount, item.CasePack, item.IOQ)
 	}
 
 	fmt.Fprintf(f, `

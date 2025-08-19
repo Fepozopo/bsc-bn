@@ -75,9 +75,9 @@ func ExtractPO(poTable *goquery.Selection) PO {
 				ISBN:        identifier["ISBN"],
 				ArrivalDate: strings.TrimSpace(cols.Eq(10).Text()),
 				Quantity:    strings.TrimSpace(cols.Eq(3).Text()),
-				ItemCost:    strings.TrimSpace(cols.Eq(6).Text()),
-				ItemRetail:  strings.TrimSpace(cols.Eq(7).Text()),
-				Discount:    strings.TrimSpace(cols.Eq(8).Text()),
+				ItemCost:    strings.TrimSpace(cols.Eq(8).Text()),
+				ItemRetail:  strings.TrimSpace(cols.Eq(6).Text()),
+				Discount:    strings.TrimSpace(cols.Eq(7).Text()),
 				CasePack:    "",
 			}
 			// Next row is the detail row
